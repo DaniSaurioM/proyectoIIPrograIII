@@ -9,6 +9,7 @@ public class Matriz {
         NodoMatriz actual = inicio;
         while (actual != null) {
             if (actual.fila == fila && actual.columna == columna) {
+                imprimirNodo(actual); // Llamar a la función imprimirNodo si se encuentra el nodo
                 return actual;
             } else if (actual.fila > fila) {
                 actual = actual.arriba;
@@ -20,7 +21,16 @@ public class Matriz {
                 actual = actual.derecha;
             }
         }
+        System.out.println("El nodo no existe en la matriz");
         return null;
+    }
+
+    public void imprimirNodo(NodoMatriz nodo) {
+        System.out.println("Placa: " + nodo.placa);
+        System.out.println("Color: " + nodo.color);
+        System.out.println("Linea: " + nodo.linea);
+        System.out.println("Modelo: " + nodo.modelo);
+        System.out.println("Propietario: " + nodo.propietario);
     }
 
     public void insertar(int fila, int columna, String placa, String color, String linea, int modelo,
@@ -98,6 +108,19 @@ public class Matriz {
 
         if (nodoAEliminar == inicio) {
             inicio = nodoAEliminar.abajo != null ? nodoAEliminar.abajo : nodoAEliminar.derecha;
+        }
+    }
+
+    public void imprimir() {
+        NodoMatriz actual = inicio;
+        while (actual != null) {
+            NodoMatriz aux = actual;
+            while (aux != null) {
+                System.out.print("[" + aux.fila + "," + aux.columna + "] ");
+                aux = aux.derecha;
+            }
+            System.out.println();
+            actual = actual.abajo;
         }
     }
 
