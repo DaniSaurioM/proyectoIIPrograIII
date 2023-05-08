@@ -11,6 +11,7 @@ public class NodoMatriz {
     NodoMatriz izquierda;
     NodoMatriz derecha;
 
+    /* inicializa los atributos del nodo con los valores proporcionados. */
     public NodoMatriz(int fila, int columna, String placa, String color, String linea, int modelo, String propietario) {
         this.fila = fila;
         this.columna = columna;
