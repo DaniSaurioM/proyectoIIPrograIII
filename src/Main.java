@@ -4,37 +4,87 @@
  * Date: 05/01/2023
  */
 
+import java.util.Scanner;
+
 public class Main {
+
     public static void main(String[] args) {
         Matriz matriz = new Matriz();
+        Scanner scanner = new Scanner(System.in);
 
-        // se hace la insercion de los nodos en la matriz
-        matriz.insertar(1, 1, "QWE-123", "Rojo", "Mitsubishi", 2002, "Juan Perez");
-        matriz.insertar(1, 2, "ASD-456", "Verde", "Honda", 2019, "Marco Polo");
-        matriz.insertar(2, 1, "ZXC-789", "Amarillo", "Ferrari", 2023, "Fernando Arriga");
-        matriz.insertar(2, 2, "QAZ-741", "Blanco", "Mustang", 2022, "Maria Alonso");
-        System.out.println("\n Buscar nodo [1,2] ");
-        matriz.buscar(1, 2);
-        System.out.println("------------------------------");
+        int opcion;
+        do {
+            System.out.println("Seleccione una opción:");
+            System.out.println("1. Insertar nodo");
+            System.out.println("2. Buscar nodo");
+            System.out.println("3. Eliminar nodo");
+            System.out.println("4. Imprimir matriz");
+            System.out.println("5. Salir");
 
-        System.out.println("\n Buscar nodo [2,1] ");
-        matriz.buscar(3, 1);
-        System.out.println("------------------------------");
+            opcion = scanner.nextInt();
+            switch (opcion) {
+                case 1:
+                    System.out.println("---------------------------");
+                    System.out.println("Ingrese los datos del nodo:");
+                    System.out.print("Fila: ");
+                    int fila = scanner.nextInt();
+                    System.out.print("Columna: ");
+                    int columna = scanner.nextInt();
+                    scanner.nextLine(); // Consumir el salto de línea
+                    System.out.print("Placa: ");
+                    String placa = scanner.nextLine();
+                    System.out.print("Color: ");
+                    String color = scanner.nextLine();
+                    System.out.print("Línea: ");
+                    String linea = scanner.nextLine();
+                    System.out.print("Modelo: ");
+                    int modelo = scanner.nextInt();
+                    scanner.nextLine(); // Consumir el salto de línea
+                    System.out.print("Propietario: ");
+                    String propietario = scanner.nextLine();
 
-        System.out.println("\n\n imprimir los nodos ");
-        matriz.imprimir();
-        System.out.println("------------------------------");
+                    matriz.insertar(fila, columna, placa, color, linea, modelo, propietario);
+                    System.out.println("---------------------------");
+                    break;
 
-        System.out.println("\n\n eliminar nodo buscado [1,2] ");
-        matriz.eliminar(1, 2);
-        System.out.println("------------------------------");
+                case 2:
+                    System.out.println("---------------------------");
+                    System.out.println("Ingrese la posición del nodo a buscar:");
+                    System.out.print("Fila: ");
+                    int filaBuscar = scanner.nextInt();
+                    System.out.print("Columna: ");
+                    int columnaBuscar = scanner.nextInt();
 
-        System.out.println("\n\n volver a Buscar nodo [1,2] ");
-        matriz.buscar(1, 2);
-        System.out.println("------------------------------");
+                    matriz.buscar(filaBuscar, columnaBuscar);
+                    System.out.println("---------------------------");
+                    break;
 
-        System.out.println("\n\n imprimir los nodos ");
-        matriz.imprimir();
+                case 3:
+                    System.out.println("---------------------------");
+                    System.out.println("Ingrese la posición del nodo a eliminar:");
+                    System.out.print("Fila: ");
+                    int filaEliminar = scanner.nextInt();
+                    System.out.print("Columna: ");
+                    int columnaEliminar = scanner.nextInt();
 
+                    matriz.eliminar(filaEliminar, columnaEliminar);
+                    System.out.println("---------------------------");
+                    break;
+
+                case 4:
+                    System.out.println("---------------------------");
+                    matriz.imprimir();
+                    System.out.println("---------------------------");
+                    break;
+
+                case 5:
+                    System.out.println("¡Gracias por usar el programa!");
+                    break;
+
+                default:
+                    System.out.println("Opción inválida, intente nuevamente.");
+                    break;
+            }
+        } while (opcion != 5);
     }
 }
