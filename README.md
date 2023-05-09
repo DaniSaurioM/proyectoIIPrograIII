@@ -15,8 +15,6 @@ Bienvenido al sistema de gestión de vehículos implementado mediante una matriz
 ### Introducción
 El sistema de gestión de vehículos tiene como objetivo permitir al usuario insertar, buscar, eliminar e imprimir información sobre vehículos en una matriz dispersa.
 
-requiere un ordenador con un sistema operativo Windows o Linux. Además, es necesario tener instalado Java en el ordenador.
-
 
 ### Menú de opciones
 El menú de opciones del sistema de gestión de vehículos consta de las siguientes opciones:
