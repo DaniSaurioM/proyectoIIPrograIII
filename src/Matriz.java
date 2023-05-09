@@ -119,6 +119,8 @@ public class Matriz {
     /* elimina un nodo de la matriz dado su fila y columna. */
     public void eliminar(int fila, int columna) {
         NodoMatriz nodoAEliminar = buscar(fila, columna);
+
+        System.out.println("NODO ELIMINADO");
         if (nodoAEliminar == null) {
             return;
         }
